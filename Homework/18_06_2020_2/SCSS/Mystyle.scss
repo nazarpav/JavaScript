@@ -1,0 +1,36 @@
+    $BackgroundColor: #353b48;
+    $BackgroundColor1: #7f8fa6;
+    $ForegroundColor: #44bd32;
+    $ForegroundColor2: #e70101;
+    $FontColor1Color: #dcdde1;
+    body {
+        background-color: $BackgroundColor;
+    }
+    
+    .ForegroundColorGreen {
+        color: $ForegroundColor;
+    }
+    
+    .ForegroundColorRed {
+        color: $ForegroundColor2;
+    }
+    
+    .FontStyleCSMS {
+        font-family: "Comic Sans MS";
+    }
+    
+    .BackgroundF1 {
+        background-color: $BackgroundColor1;
+    }
+    
+    .FontColor1 {
+        color: $FontColor1Color;
+    }
+    
+    .FontLarge {
+        font-size: x-large;
+    }
+    
+    .FBold {
+        font-weight: bold;
+    }

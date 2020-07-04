@@ -1,0 +1,32 @@
+body {
+  background-color: #353b48;
+}
+
+.ForegroundColorGreen {
+  color: #44bd32;
+}
+
+.ForegroundColorRed {
+  color: #e70101;
+}
+
+.FontStyleCSMS {
+  font-family: "Comic Sans MS";
+}
+
+.BackgroundF1 {
+  background-color: #7f8fa6;
+}
+
+.FontColor1 {
+  color: #dcdde1;
+}
+
+.FontLarge {
+  font-size: x-large;
+}
+
+.FBold {
+  font-weight: bold;
+}
+/*# sourceMappingURL=Mystyle.css.map */
