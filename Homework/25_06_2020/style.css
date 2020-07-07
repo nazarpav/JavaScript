@@ -1,0 +1,17 @@
+.InputStyle {
+  width: 100px;
+  background-color: #7f8fa6;
+  color: #2f3640;
+  text-align: left;
+  font-family: 'Comic Sans MS';
+  font-weight: bold;
+}
+
+.InputFieldStyle {
+  width: 100px;
+  background-color: #f5f6fa;
+  color: #2f3640;
+  text-align: center;
+  font-family: 'Comic Sans MS';
+}
+/*# sourceMappingURL=style.css.map */
