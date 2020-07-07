@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Шрот запчастин</title>
+    <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!--<link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">-->
+    <!--<link rel="stylesheet" href="/node_modules/font-awesome/css/font-awesome.min.css">-->
+    <link href="/lib/fortawesome/fontawesome-free/css/fontawesome.min.css" rel="stylesheet" />
+    <link href="/lib/fortawesome/fontawesome-free/css/brands.min.css" rel="stylesheet" />
+    <link href="/lib/fortawesome/fontawesome-free/css/regular.min.css" rel="stylesheet" />
+    <link href="/lib/fortawesome/fontawesome-free/css/solid.min.css" rel="stylesheet" />
+    <script src="/js/helpLoader.js"></script>
+</head>
+
+<body>
+    <script>
+        loadHtml("navbar.html");
+    </script>
+
+    <div class="container">
+        <h1>Тестуємо роботу fetch</h1>
+        <div id="content">
+
+        </div>
+        
+    </div>
+    <script src="/lib/jquery/jquery.min.js"></script>
+    <script src="/lib/popper.js/dist/popper.min.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!--<script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/node_modules/popper.js/dist/popper.min.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>-->
+    <script>
+
+        function isProblem(promisError) {
+            promisError.then(
+                myjson => {
+                    console.log("Помилка роботи програми")
+                    content.innerHTML =`Проблема ${myjson.error}`;
+                }
+            );
+        }
+
+        function GoodFetch(promisGood) {
+            promisGood.then(
+                myjson => {
+                    console.log("Програма спрацювала правильно")
+                    content.innerHTML = `${myjson.name}`;
+                }
+            );
+        }
+
+        window.addEventListener("load", function () {
+            let content = document.getElementById("content");
+            content.innerHTML = "Hello";
+            let url = "http://localhost:59389/api/users/search"; 
+            let promise = fetch(url);
+            promise.then(
+                (result) => {
+                    if (result.status == 200)
+                        GoodFetch(result.json());
+                    else
+                        isProblem(result.json())
+                    //console.log(result);
+                    //return result.json();
+                });
+
+            //jsonPromis.then(myjson => {
+            //    console.log(myjson)
+            //    content.innerHTML = myjson.error;
+            //});
+
+        });
+
+
+    </script>
+
+
+</body>
+
+</html>

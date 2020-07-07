@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Шрот запчастин</title>
+    <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!--<link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">-->
+    <!--<link rel="stylesheet" href="/node_modules/font-awesome/css/font-awesome.min.css">-->
+    <link href="/lib/fortawesome/fontawesome-free/css/fontawesome.min.css" rel="stylesheet" />
+    <link href="/lib/fortawesome/fontawesome-free/css/brands.min.css" rel="stylesheet" />
+    <link href="/lib/fortawesome/fontawesome-free/css/regular.min.css" rel="stylesheet" />
+    <link href="/lib/fortawesome/fontawesome-free/css/solid.min.css" rel="stylesheet" />
+    <script src="/js/helpLoader.js"></script>
+
+</head>
+
+<body>
+    <script>
+        loadHtml("navbar.html");
+    </script>
+
+    <div class="container">
+        <h1>Робота з користувачами</h1>
+        <div>
+            <a href="#" id="getFetchData" class="btn btn-warning">
+                Показати через fetch
+            </a>
+            <a href="#" id="getAxiosData" class="btn btn-success">
+                Показати через axios
+            </a>
+            <a href="#" id="getXmlHttpRequest" class="btn btn-danger">
+                Показати через xmlHttpRequest
+            </a>
+        </div>
+        <div id="content">
+
+        </div>
+
+    </div>
+    <script src="/lib/jquery/jquery.min.js"></script>
+    <script src="/lib/popper.js/dist/popper.min.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/lib/axios/dist/axios.min.js"></script>
+    <!--<script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/node_modules/popper.js/dist/popper.min.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>-->
+
+    <script>
+        function getUrlUsers() {
+            return "http://localhost:59389/api/users/search";
+        }
+
+        function getContentTableByJSON(data) {
+            let str = `
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th scope="col">Image</th>
+                              <th scope="col">Email</th>
+                              <th scope="col">Role</th>
+                            </tr>
+                          </thead>
+                          <tbody>`;
+            data.forEach(function (item) {
+                str += `
+                                <tr>
+                                  <th>
+                                       <img src="${item.image}" alt="User image" width="150" />
+                                  </th>
+                                  <td>${item.email}</td>
+                                  <td>${item.role}</td>
+                                </tr>`;
+            });
+            str += `
+                        </tbody>
+                      </table>
+                                `;
+            return str;
+
+        }
+
+        window.addEventListener("load", function () {
+            let getFetchData = document.getElementById("getFetchData");
+            let divContent = document.getElementById("content");
+
+            getFetchData.addEventListener("click", function (e) {
+                e.preventDefault();
+                let url = getUrlUsers();
+                fetch(url)
+                    .then(
+                        (result) => result.json()
+                    )
+                    .then(function (data) {
+                        divContent.innerHTML = getContentTableByJSON(data);
+
+                    });
+
+                //alert("Get fetch data");
+                return false;
+            });
+        });
+    </script>
+
+    <script>
+        window.addEventListener("load", function () {
+            let getAxiosData = document.getElementById("getAxiosData");
+            let divContent = document.getElementById("content");
+
+            getAxiosData.addEventListener("click", function (e) {
+                e.preventDefault();
+                let url = getUrlUsers();
+                axios.get(url)
+                    .then(
+                        (result) => {
+                            divContent.innerHTML = getContentTableByJSON(result.data);
+                        },
+                        (error) => console.log("error", error)
+                    );
+                return false;
+            });
+        });
+    </script>
+
+    <script>
+        window.addEventListener("load", function () {
+            let getXmlHttpRequest = document.getElementById("getXmlHttpRequest");
+            let divContent = document.getElementById("content");
+
+            getXmlHttpRequest.addEventListener("click", function (e) {
+                e.preventDefault();
+                let url = getUrlUsers();
+
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', url, false);
+                xhr.send();
+                if (xhr.status != 200) {
+                    // обработать ошибку
+                    console.log(xhr.status + ': ' + xhr.statusText); // пример вывода: 404: Not Found
+                } else {
+                    let result = xhr.responseText;
+                    let data = JSON.parse(result);
+                    divContent.innerHTML = getContentTableByJSON(data);
+                }
+                return false;
+            });
+        });
+    </script>
+
+</body>
+
