@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Шрот запчастин</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/node_modules/font-awesome/css/font-awesome.min.css">
+
+    <script src="js/helpLoader.js"></script>
+    <script src="/js/main.js"></script>
+</head>
+
+<body>
+    <script>
+        loadHtml("navbar.html");
+    </script>
+
+    <div class="container">
+        <h1 style="font-family: 'Comic Sans MS'; font-weight: bold;">Registration Form</h1>
+        <div class="row">
+            <div class="col-lg">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text SpanStyle">Name</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Sizing example input" id="Name" placeholder="Name" aria-describedby="inputGroup-sizing-default">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text SpanStyle">Surname</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Sizing example input" id="Surname" placeholder="Surname" aria-describedby="inputGroup-sizing-default">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text SpanStyle">Phone</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Sizing example input" id="PhoneNumber" placeholder="Phone number" aria-describedby="inputGroup-sizing-default">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text SpanStyle">Country</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Sizing example input" id="Country" placeholder="Country" aria-describedby="inputGroup-sizing-default">
+                </div>
+                <div id="Countries"></div>
+            </div>
+            <div class="col-lg">
+                <div class="input-group mb-3">
+                    <i class="form-control" id="NameCopy"></i>
+                    <div class="input-group-prepend">
+                        <span class="form-control SpanStyle2">Name</span>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    <i class="form-control" id="SurnameCopy"></i>
+                    <div class="input-group-prepend">
+                        <span class="form-control SpanStyle2">Surname</span>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    <i class="form-control" id="PhoneNumberCopy"></i>
+                    <div class="input-group-prepend">
+                        <span class="form-control SpanStyle2">Phone</span>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    <i class="form-control" id="CountryCopy"></i>
+                    <div class="input-group-prepend">
+                        <span class="form-control SpanStyle2">Country</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/node_modules/popper.js/dist/popper.min.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="Logic.js"></script>
+</body>
+<style>
+    .SpanStyle {
+        width: 100px;
+        background-color: #badc58;
+        font-family: "Comic Sans MS";
+        font-weight: bold;
+    }
+    
+    .SpanStyle2 {
+        width: 100px;
+        background-color: #f6e58d;
+        font-family: "Comic Sans MS";
+        font-weight: bold;
+    }
+</style>
+
+</html>
