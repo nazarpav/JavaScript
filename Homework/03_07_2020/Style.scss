@@ -1,0 +1,16 @@
+.loader {
+    z-index: 9999;
+    top: 0;
+    background: rgba(0, 0, 0, .6);
+    position: fixed;
+    display: none;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    height: 100%;
+}
+
+.loader i {
+    font-size: 100px;
+    color: #fff;
+}
