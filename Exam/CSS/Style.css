@@ -1,0 +1,16 @@
+.MainLoader {
+  top: 0;
+  position: fixed;
+  z-index: 9999;
+  display: none;
+  width: 100%;
+  height: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: #27ae5f3a;
+}
+/*# sourceMappingURL=Style.css.map */
